@@ -36,6 +36,8 @@
                         facingMode: "environment"
                     },
                 },
+                halfSample: false,
+                patchSize: "small",
                 decoder: {
                     readers: [
                         "code_128_reader",
@@ -48,6 +50,7 @@
                         "upc_e_reader",
                         "i2of5_reader"
                     ],
+                    
                     debug: {
                         showCanvas: true,
                         showPatches: true,
@@ -71,8 +74,6 @@
                 }
                 console.log("Initialization finished. Ready to start");
                 Quagga.start();
-                // Set flag to is running
-                alert('hi');
                 _scannerIsRunning = true;
             });
 
@@ -102,7 +103,7 @@
 
             Quagga.onDetected(function (result) {
                 alert(result.codeResult.code);
-                console.log("Barcode detected and processed : [" + result.codeResult.code + "]", result);
+//                 console.log("Barcode detected and processed : [" + result.codeResult.code + "]", result);
             });
         }
 

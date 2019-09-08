@@ -18,6 +18,7 @@
     <script type="text/javascript">
       let scanner = new Instascan.Scanner({ video: document.getElementById('preview') });
       scanner.addListener('scan', function (content) {
+	      alert("hi");
           $('#s').val(content);
           $('#sub').submit();
       });

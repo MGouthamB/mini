@@ -11,8 +11,7 @@
 </head>
 <body>
     <video id="preview"></video>
-	<form action='http://goutham:8000/main/scan/' method='post' id='form'>
-		{% csrf_token %}
+	<form action='http://goutham:8000/main/scan/' method='get' id='form'>
 		<input type='hidden' name='scan' id="s">
 	</form>
     <script type="text/javascript">

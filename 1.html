@@ -8,11 +8,10 @@
     <video id="preview"></video>
 	hi
     <script type="text/javascript">
-	    alert("hi");
       let scanner = new Instascan.Scanner({ video: document.getElementById('preview') });
       scanner.addListener('scan', function (content) {
 	      alert(content);
-        $.post('http://goutham:8000/main/scan/',{d:content});
+//         $.post('http://goutham:8000/main/scan/',{d:content});
 	      alert("hi");
       });
       Instascan.Camera.getCameras().then(function (cameras) {

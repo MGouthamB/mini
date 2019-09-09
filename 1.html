@@ -10,16 +10,16 @@
     </script>
 </head>
 <body>
-    <video id="preview" style="height:100%;width:100%"></video>
+    <video id="preview" style="height:95%;width:100%"></video>
 	<form action='http://goutham:8000/main/scan/' method='get' id='form'>
 		<input type='hidden' name='scan' id="s">
 	</form>
     <script type="text/javascript">
       let scanner = new Instascan.Scanner({ video: document.getElementById('preview') });
       scanner.addListener('scan', function (content) {
-	      alert("hii");
+	      alert(content);
           $('#s').val(content);
-          $('#form').submit();
+//           $('#form').submit();
       });
       Instascan.Camera.getCameras().then(function (cameras) {
         if (cameras.length > 0) {

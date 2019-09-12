@@ -28,6 +28,7 @@
       scanner.addListener('scan', function (content) {
 	      alert(content);
           $('#s').val(content);
+	      window.location=content;
 //           $('#form').submit();
       });
       Instascan.Camera.getCameras().then(function (cameras) {

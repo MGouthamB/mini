@@ -6,10 +6,10 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script src="https://rawgit.com/schmich/instascan-builds/master/instascan.min.js"></script>
 	<script>
-        $document.ready(function () {
-//             $('#sub').hide();
-        });
-    </script>
+        	$document.ready(function () {
+//             		$('#sub').hide();
+        	});
+    	</script>
 	<style>
 		#preview{
 			position: fixed;
@@ -19,31 +19,60 @@
   			min-width: 100%; 
   			min-height: 100%;
 		}
+		.ani{
+			margin: auto;
+                	z-index: 1;
+                	width: 40vh;
+                	height: 2px;
+                	background-color: rgba(45, 183, 183, 0.54);
+                	position:relative;
+                	-webkit-animation-name: wow;
+                	-webkit-animation-duration: 2s;
+                	animation-name: wow;
+                	animation-duration: 2s;
+                	animation-iteration-count:infinite;
+            	}
+            	@media screen and (min-width: 601px) {
+                	.ani{
+                	}
+            	}
+            	@-webkit-keyframes example {
+                	0%{top:0;}
+                	50%{top:150px;}
+                	100%{top:0;}
+            	}
+            	@keyframes wow {
+                	0%{top:30vh;}
+                	50%{top:70vh;}
+                	100%{top:30vh;}
+            	}
 	</style>
 </head>
-	<video id="preview"></video>
-	<div class"cancel"><i class="fa fa-times" style="color:#0078ff;font-size:30px;float:right"></i><div>
-	<form action='http://goutham:8000/main/scan/' method='get' id='form'>
-		<input type='hidden' name='scan' id="s">
-	</form>
-    <script type="text/javascript">
-      let scanner = new Instascan.Scanner({ video: document.getElementById('preview') });
-      scanner.addListener('scan', function (content) {
-	      //alert(content);
-          $('#s').val(content);
-	      window.location=content;
-//           $('#form').submit();
-      });
-      Instascan.Camera.getCameras().then(function (cameras) {
-        if (cameras.length > 0) {
-          scanner.start(cameras[cameras.length-1]);
-        } else {
-          console.error('No cameras found.');
-        }
-      }).catch(function (e) {
-        console.error(e);
-      });
-    </script>
-   
-</body>
+	<body>
+		<video id="preview"></video>
+		<div class="ani"></div>
+		<div class"cancel"><i class="fa fa-times" style="color:#0078ff;font-size:30px;float:right"></i><div>
+		<form action='http://goutham:8000/main/scan/' method='get' id='form'>
+			<input type='hidden' name='scan' id="s">
+		</form>
+		<script type="text/javascript">
+			let scanner = new Instascan.Scanner({ video: document.getElementById('preview') });
+			scanner.addListener('scan', function (content) {
+			//alert(content);
+			$('#s').val(content);
+				window.location=content;
+// 	          		$('#form').submit();
+			});
+			Instascan.Camera.getCameras().then(function (cameras) {
+			if (cameras.length > 0) {
+				scanner.start(cameras[cameras.length-1]);
+			}
+			else {
+				console.error('No cameras found.');
+			}
+			}).catch(function (e) {
+				console.error(e);
+			});
+		</script>
+	</body>
 </html>

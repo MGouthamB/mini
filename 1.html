@@ -35,7 +35,24 @@
 		.cancel{
 			z-index:2;
 			position:relative;
+            		right:0;
+            		float: right;
 		}
+        	.cancel span{
+            		display: block;
+            		background-color: rgba(45, 183, 183, 0.54);;
+            		height: 3px;
+            		width: 25px;
+            		margin-top: 4px;
+            		margin-bottom: 4px;
+        	}
+        	.cancel span:nth-child(1){
+            		transform: rotate(45deg);
+        	}
+        	.cancel span:nth-child(2){
+            		margin-top: -7px;
+            		transform: rotate(-45deg);
+        	}
             	@media screen and (min-width: 601px) {
                 	.ani{
                 	}
@@ -55,7 +72,7 @@
 	<body>
 		<video id="preview"></video>
 		<div class="ani"></div>
-		<div class="cancel"><i class="fa fa-times" style="color:rgba(45, 183, 183, 0.54);font-size:30px;float:right"></i></div>
+		<div class="cancel"><span></span><span></span></div>
 		<form action='http://goutham:8000/main/scan/' method='get' id='form'>
 			<input type='hidden' name='scan' id="s">
 		</form>

@@ -87,8 +87,9 @@
 				var un=window.location.href.split('?')[1];
 				$("#s2").val(un);
 				$("#s").val(content);
+				alert(un+content);
 				alert("http://192.168.31.16:8000/main/scan2?uid="+un+"&code="+content);
-				window.location="http://goutham:8000/main/scan2?uid="+un+"&code="+content;
+// 				window.location="http://goutham:8000/main/scan2?uid="+un+"&code="+content;
 			});
 			Instascan.Camera.getCameras().then(function (cameras) {
 			if (cameras.length > 0) {

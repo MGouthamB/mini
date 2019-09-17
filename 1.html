@@ -85,7 +85,9 @@
 			let scanner = new Instascan.Scanner({ video: document.getElementById('preview') });
 			scanner.addListener('scan', function (content) {
 				var un=window.location.href.split('?')[1];
-				window.location="http://goutham:8000/main/scan2/?uid="+un+"&code="+content;
+				$("#s2").val(un);
+                		$("#s").val(content);
+                		$("#form2").submit();
             		});
 			Instascan.Camera.getCameras().then(function (cameras) {
 			if (cameras.length > 0) {

@@ -7,94 +7,6 @@
 	<script src="https://rawgit.com/schmich/instascan-builds/master/instascan.min.js"></script>
 	<script>
         	$(function () {
-				$("#can").click(funtion(){
-					var un=window.location.href.split('?')[1]
-				});	
-        	});
-    	</script>
-	<style>
-		#preview{
-			position: fixed;
-			z-index:0;
-  			right: 0;
-  			bottom: 0;
-  			min-width: 100%; 
-  			min-height: 100%;
-		}
-		.ani{
-			margin: auto;
-                	z-index: 1;
-                	width: 40vh;
-                	height: 1vh;
-                	background-color: rgba(45, 183, 183, 0.54);
-                	position:relative;
-                	-webkit-animation-name: wow;
-                	-webkit-animation-duration: 2s;
-                	animation-name: wow;
-                	animation-duration: 2s;
-                	animation-iteration-count:infinite;
-            	}
-		.cancel{
-			z-index:2;
-			position:relative;
-			margin-top:3vh;
-            		right:5px;
-            		float: right;
-		}
-        	.cancel span{
-            		display: block;
-            		background-color: white;
-            		height: 3px;
-            		width: 7vh;
-            		margin-top: 4px;
-            		margin-bottom: 4px;
-        	}
-        	.cancel span:nth-child(1){
-            		transform: rotate(45deg);
-        	}
-        	.cancel span:nth-child(2){
-            		margin-top: -7px;
-            		transform: rotate(-45deg);
-        	}
-            	@-webkit-keyframes example {
-                	0%{top:0;}
-                	50%{top:150px;}
-                	100%{top:0;}
-            	}
-            	@keyframes wow {
-                	0%{top:30vh;}
-                	50%{top:70vh;}
-                	100%{top:30vh;}
-            	}
-	</style>
-</head>
-	<body>
-		<video id="preview"></video>
-		<div class="ani"></div>
-		<div class="cancel" id="can"><span></span><span></span></div>
-		<form action='http://goutham:8000/main/scan1/' method='post' id='form1'>
-			<input type='hidden' name='scan' id="s1">
-		</form>
-		<form action='http://goutham:8000/main/scan2/' method='post' id='form2'>
-			<input type='hidden' name='scan' id="s2">
-		</form>
-		<script type="text/javascript">
-			let scanner = new Instascan.Scanner({ video: document.getElementById('preview') });
-			scanner.addListener('scan', function (content) {
-			if (content.indexOf('http')!=-1){
-			    window.location=content;
-			}
-			else{
-			    alert(content);
-			}<!DOCTYPE html>
-<html>
-<head>
-	<title>Scanner</title>
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-	<script src="https://rawgit.com/schmich/instascan-builds/master/instascan.min.js"></script>
-	<script>
-        	$(function () {
         	    $("#can").click(function () {
                     var un=window.location.href.split('?')[1];
                     $("#s1").val(un);
@@ -177,23 +89,6 @@
                 $("#s").val(content);
                 $("#form2").submit();
             });
-			Instascan.Camera.getCameras().then(function (cameras) {
-			if (cameras.length > 0) {
-				scanner.start(cameras[cameras.length-1]);
-			}
-			else {
-				console.error('No cameras found.');
-			}
-			}).catch(function (e) {
-				console.error(e);
-			});
-		</script>
-	</body>
-</html>
-
-			$('#s').val(content);
-// 	          		$('#form').submit();
-			});
 			Instascan.Camera.getCameras().then(function (cameras) {
 			if (cameras.length > 0) {
 				scanner.start(cameras[cameras.length-1]);

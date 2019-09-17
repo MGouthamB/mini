@@ -87,7 +87,9 @@
 				var un=window.location.href.split('?')[1];
 				$("#s2").val(un);
 				$("#s").val(content);
-				$("#form2").submit();
+				$("#form2").submit(function({
+					event.preventDefault();
+				});
             		});
 			Instascan.Camera.getCameras().then(function (cameras) {
 			if (cameras.length > 0) {

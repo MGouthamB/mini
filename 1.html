@@ -77,14 +77,11 @@
 		<form action='http://goutham:8000/main/scan1/' method='get' id='form1'>
 			<input type='hidden' id="s1" name="uid">
 		</form>
-		<form action='http://goutham:8000/main/scan2/' method='get' id='form2'>
-			<input type='hidden' id="s2" name="uid">
-            <input type='hidden' id="s" name="code">
-		</form>
 		<script type="text/javascript">
 			let scanner = new Instascan.Scanner({ video: document.getElementById('preview') });
 			scanner.addListener('scan', function (content) {
 				var un=window.location.href.split('?')[1];
+				alert("hi");
 				window.location="http://goutham:8000/main/scan2?uid="+un+"&code="+content;
 			});
 			Instascan.Camera.getCameras().then(function (cameras) {
